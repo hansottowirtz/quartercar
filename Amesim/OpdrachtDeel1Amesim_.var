@@ -1,0 +1,30 @@
+MAS002 instance 1 velocity at port 1 [m/s] Data_Path=va@mass2port
+MAS002 instance 1 displacement port 1 [m] Data_Path=x@mass2port
+MAS002 instance 1 acceleration at port 1 [m/s/s] Data_Path=accel@mass2port
+SD0000A instance 1 force at port 1 [N] Data_Path=force1@springdamper01
+MAS001 instance 1 velocity at port 1 [m/s] Data_Path=v@mass1port
+MAS001 instance 1 displacement port 1 [m] Data_Path=x@mass1port
+MAS001 instance 1 acceleration at port 1 [m/s/s] Data_Path=accel@mass1port
+SD0000A instance 1 duplicate of force at port 1 [N] Data_Path=force2@springdamper01
+SD0000A instance 1 spring force [N] Data_Path=force@springdamper01
+SD0000A instance 1 spring compression [m] Data_Path=x@springdamper01
+SD0000A instance 1 spring stiffness value [N/m] Data_Path=kval@springdamper01
+HIDDEN
+HIDDEN
+SD0000A instance 2 force at port 1 [N] Data_Path=force1@springdamper01_1
+V001 instance 1 linear velocity (always zero) [m/s] Data_Path=vzero@zerospeedsource
+V001 instance 1 linear displacement [m] Data_Path=x@zerospeedsource
+V001 instance 1 linear acceleration (always zero) [m/s/s] Data_Path=azero@zerospeedsource
+MAS002 instance 1 sign reversed duplicate of velocity at port 1 [m/s] Data_Path=vb@mass2port
+MAS002 instance 1 sign reversed duplicate of displacement port 1 [m] Data_Path=xb@mass2port
+MAS002 instance 1 sign reversed duplicate of acceleration at port 1 [m/s/s] Data_Path=ab@mass2port
+SD0000A instance 2 duplicate of force at port 1 [N] Data_Path=force2@springdamper01_1
+SD0000A instance 2 spring force [N] Data_Path=force@springdamper01_1
+SD0000A instance 2 spring compression [m] Data_Path=x@springdamper01_1
+SD0000A instance 2 spring stiffness value [N/m] Data_Path=kval@springdamper01_1
+HIDDEN
+HIDDEN
+HIDDEN
+HIDDEN
+HIDDEN
+HIDDEN
