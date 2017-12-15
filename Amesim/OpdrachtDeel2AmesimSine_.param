@@ -1,0 +1,32 @@
+SD0000A instance 1 spring force with both displacements zero [N] Is_Delta=0 Param_Id=29 Recompile_Flag=0 Data_Path=force0@springdamper01
+SD0000A instance 1 spring rate [N/m] Is_Delta=0 Param_Id=30 Recompile_Flag=0 Data_Path=srate@springdamper01
+SD0000A instance 1 damper rating [N/(m/s)] Is_Delta=0 Param_Id=31 Recompile_Flag=0 Data_Path=cdamp@springdamper01
+SD0000A instance 1 material shear modulus [N/m**2] Is_Delta=0 Param_Id=32 Recompile_Flag=0 Data_Path=G@springdamper01
+SD0000A instance 1 spring diameter [mm] Is_Delta=0 Param_Id=33 Recompile_Flag=0 Data_Path=sdiam@springdamper01
+SD0000A instance 1 wire diameter [mm] Is_Delta=0 Param_Id=34 Recompile_Flag=0 Data_Path=wdiam@springdamper01
+SD0000A instance 1 spring stiffness mode Param_Id=35 Recompile_Flag=0 Data_Path=stiffmode@springdamper01
+SD0000A instance 1 number of active coils Param_Id=36 Recompile_Flag=0 Data_Path=ncoils@springdamper01
+MAS002 instance 1 mass [kg] Is_Delta=0 Param_Id=93 Recompile_Flag=0 Data_Path=mass@mass2port
+MAS002 instance 1 inclination (+90 port 1 lowest, -90 port 1 highest) [degree] Is_Delta=0 Param_Id=94 Recompile_Flag=0 Data_Path=theta@mass2port
+MAS002 instance 1 velocity at port 1 [m/s] Param_Id=101 Recompile_Flag=0 Data_Path=va@mass2port
+MAS002 instance 1 displacement port 1 [m] Param_Id=102 Recompile_Flag=0 Data_Path=x@mass2port
+MAS001 instance 1 mass [kg] Is_Delta=0 Param_Id=9 Recompile_Flag=0 Data_Path=mass@mass1port
+MAS001 instance 1 inclination (+90 port 1 lowest, -90 port 1 highest) [degree] Is_Delta=0 Param_Id=10 Recompile_Flag=0 Data_Path=theta@mass1port
+MAS001 instance 1 velocity at port 1 [m/s] Param_Id=17 Recompile_Flag=0 Data_Path=v@mass1port
+MAS001 instance 1 displacement port 1 [m] Param_Id=18 Recompile_Flag=0 Data_Path=x@mass1port
+SD0000A instance 2 spring force with both displacements zero [N] Is_Delta=0 Param_Id=53 Recompile_Flag=0 Data_Path=force0@springdamper01_1
+SD0000A instance 2 spring rate [N/m] Is_Delta=0 Param_Id=54 Recompile_Flag=0 Data_Path=srate@springdamper01_1
+SD0000A instance 2 damper rating [N/(m/s)] Is_Delta=0 Param_Id=55 Recompile_Flag=0 Data_Path=cdamp@springdamper01_1
+SD0000A instance 2 material shear modulus [N/m**2] Is_Delta=0 Param_Id=56 Recompile_Flag=0 Data_Path=G@springdamper01_1
+SD0000A instance 2 spring diameter [mm] Is_Delta=0 Param_Id=57 Recompile_Flag=0 Data_Path=sdiam@springdamper01_1
+SD0000A instance 2 wire diameter [mm] Is_Delta=0 Param_Id=58 Recompile_Flag=0 Data_Path=wdiam@springdamper01_1
+SD0000A instance 2 spring stiffness mode Param_Id=59 Recompile_Flag=0 Data_Path=stiffmode@springdamper01_1
+SD0000A instance 2 number of active coils Param_Id=60 Recompile_Flag=0 Data_Path=ncoils@springdamper01_1
+XVLC01 instance 1 time constant for derivative of displacement [s] Is_Delta=0 Param_Id=117 Recompile_Flag=0 Data_Path=tau@linearxvfromxcon
+XVLC01 instance 1 initial velocity [m/s] Is_Delta=0 Param_Id=118 Recompile_Flag=0 Data_Path=V0@linearxvfromxcon
+XVLC01 instance 1 velocity initialization Param_Id=119 Recompile_Flag=0 Data_Path=setVelocity@linearxvfromxcon
+XVLC01 instance 1 (dummy) state scalar derivative  [m] Param_Id=120 Recompile_Flag=0 Data_Path=dummy@linearxvfromxcon
+SIN0 instance 1 sine wave frequency [Hz] Is_Delta=0 Param_Id=112 Recompile_Flag=0 Data_Path=f@sinewave
+SIN0 instance 1 mean level [null] Is_Delta=0 Param_Id=113 Recompile_Flag=0 Data_Path=level0@sinewave
+SIN0 instance 1 sine wave amplitude [null] Is_Delta=0 Param_Id=114 Recompile_Flag=0 Data_Path=a@sinewave
+SIN0 instance 1 phase shift [degree] Is_Delta=0 Param_Id=115 Recompile_Flag=0 Data_Path=phi@sinewave
