@@ -1,6 +1,6 @@
 <MODEL_INFO
 # The date indicates when the C code was generated - in local time (YYYY-MM-DDTHH:MM:SS)
-DATE "2017-12-15T09:46:04"
+DATE "2017-12-21T11:38:48"
 NUM_STATES 5
 NUM_DISCRETE_STATES 0
 IS_EXPLICIT 1

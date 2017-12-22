@@ -17,14 +17,12 @@ set_param('OpdrachtDeel1Simulink/k2//m2','Gain',num2str(k2./m2))
 N = size(x,1);
 
 omega = [0:(length(t)-1)]./max(t)*2*pi;
-figure(2);plot(omega,db(fft(x(:,[1 2]))./(N./2)) );
+figure(2);plot(omega,abs(fft(x(:,[1 2]))./(N./2)) );
 xlabel('Pulsatie, in radialen/seconde');
 ylabel('Amplitude, in db');
 legend('x_1','x_2');
  
-figure(1);plot(t,x(:,[1 2]));
-xlabel('Tijd, in seconden')
+figure(1);plot(t,x(:,[1 2]));           %Omega1 = 13.58     xi1 = 0.016
+xlabel('Tijd, in seconden')                
 ylabel('Verplaatsing, in m')
 legend('x_1','x_2');
-
-pks = findpeaks(x(:,2))

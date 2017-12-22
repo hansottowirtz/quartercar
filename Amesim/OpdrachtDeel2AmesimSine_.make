@@ -58,15 +58,15 @@ OBJECTS = \
 	c:/program\ files\ (x86)/lms/lms\ imagine.lab/v1520/amesim/libmec/submodels/win32-gcc/SD0000A.o \
 	c:/program\ files\ (x86)/lms/lms\ imagine.lab/v1520/amesim/libmec/submodels/win32-gcc/MAS002.o \
 	c:/program\ files\ (x86)/lms/lms\ imagine.lab/v1520/amesim/libmec/submodels/win32-gcc/XVLC01.o \
-	c:/program\ files\ (x86)/lms/lms\ imagine.lab/v1520/amesim/libsig/submodels/win32-gcc/SIN0.o \
-	c:/program\ files\ (x86)/lms/lms\ imagine.lab/v1520/amesim/libmec/submodels/win32-gcc/MAS001.o
+	c:/program\ files\ (x86)/lms/lms\ imagine.lab/v1520/amesim/libmec/submodels/win32-gcc/MAS001.o \
+	c:/program\ files\ (x86)/lms/lms\ imagine.lab/v1520/amesim/libsig/submodels/win32-gcc/SIN0.o
 
 OBJECTS2 = \
 	"c:/program files (x86)/lms/lms imagine.lab/v1520/amesim/libmec/submodels/win32-gcc/SD0000A.o" \
 	"c:/program files (x86)/lms/lms imagine.lab/v1520/amesim/libmec/submodels/win32-gcc/MAS002.o" \
 	"c:/program files (x86)/lms/lms imagine.lab/v1520/amesim/libmec/submodels/win32-gcc/XVLC01.o" \
-	"c:/program files (x86)/lms/lms imagine.lab/v1520/amesim/libsig/submodels/win32-gcc/SIN0.o" \
-	"c:/program files (x86)/lms/lms imagine.lab/v1520/amesim/libmec/submodels/win32-gcc/MAS001.o"
+	"c:/program files (x86)/lms/lms imagine.lab/v1520/amesim/libmec/submodels/win32-gcc/MAS001.o" \
+	"c:/program files (x86)/lms/lms imagine.lab/v1520/amesim/libsig/submodels/win32-gcc/SIN0.o"
 
 OpdrachtDeel2AmesimSine_.dll: $(OBJECTS) OpdrachtDeel2AmesimSine_.o
 	@echo OpdrachtDeel2AmesimSine_.make.link_args =

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE VL>
+<VL checksum="3858795767" VersionId="15.2.0 - 63896-58725 2017" DOC_VERSION="1">
+ <VARS_LIST>
+  <VAR VARNUM="1" CIRCUIT_SCOPE_ID="105" TITLE="sign reversed duplicate of velocity at port 1" Data_Path="vb@mass2port" Submodel_Instance="1" IS_DELTA="0" UNITS="m/s" Submodel_Name="MAS002" SAVE_VALUE="1">
+   <TIE_VAR VARNUM="1" CIRCUIT_SCOPE_ID="47" TITLE="velocity at port 1" Data_Path="vel1@springdamper01" VAR_DIM="1" Submodel_Instance="1" IS_DELTA="0" UNITS="m/s" Submodel_Name="SD0000A" SAVE_VALUE="1"/>
+  </VAR>
+  <VAR VARNUM="2" CIRCUIT_SCOPE_ID="106" TITLE="sign reversed duplicate of displacement port 1" Data_Path="xb@mass2port" Submodel_Instance="1" IS_DELTA="0" UNITS="m" Submodel_Name="MAS002" SAVE_VALUE="1">
+   <TIE_VAR VARNUM="2" CIRCUIT_SCOPE_ID="48" TITLE="displacement at port 1" Data_Path="x1@springdamper01" VAR_DIM="1" Submodel_Instance="1" IS_DELTA="0" UNITS="m" Submodel_Name="SD0000A" SAVE_VALUE="1"/>
+  </VAR>
+  <VAR VARNUM="3" CIRCUIT_SCOPE_ID="107" TITLE="sign reversed duplicate of acceleration at port 1" Data_Path="ab@mass2port" Submodel_Instance="1" IS_DELTA="0" UNITS="m/s/s" Submodel_Name="MAS002" SAVE_VALUE="1"/>
+  <VAR VARNUM="4" CIRCUIT_SCOPE_ID="46" TITLE="force at port 1" Data_Path="force1@springdamper01" Submodel_Instance="1" IS_DELTA="0" UNITS="N" Submodel_Name="SD0000A" SAVE_VALUE="1">
+   <TIE_VAR VARNUM="4" CIRCUIT_SCOPE_ID="108" TITLE="force at port 2" Data_Path="fb@mass2port" VAR_DIM="1" Submodel_Instance="1" IS_DELTA="0" UNITS="N" Submodel_Name="MAS002" SAVE_VALUE="1"/>
+  </VAR>
+  <VAR VARNUM="5" CIRCUIT_SCOPE_ID="17" TITLE="velocity at port 1" Data_Path="v@mass1port" Submodel_Instance="1" VAR_HASSTART_VALUE="1" IS_DELTA="0" UNITS="m/s" Submodel_Name="MAS001" SAVE_VALUE="1">
+   <TIE_VAR VARNUM="5" CIRCUIT_SCOPE_ID="50" TITLE="velocity at port 2" Data_Path="vel2@springdamper01" VAR_DIM="1" Submodel_Instance="1" IS_DELTA="0" UNITS="m/s" Submodel_Name="SD0000A" SAVE_VALUE="1"/>
+  </VAR>
+  <VAR VARNUM="6" CIRCUIT_SCOPE_ID="18" TITLE="displacement port 1" Data_Path="x@mass1port" Submodel_Instance="1" VAR_HASSTART_VALUE="1" IS_DELTA="0" UNITS="m" Submodel_Name="MAS001" SAVE_VALUE="1">
+   <TIE_VAR VARNUM="6" CIRCUIT_SCOPE_ID="51" TITLE="displacement at port 2" Data_Path="x2@springdamper01" VAR_DIM="1" Submodel_Instance="1" IS_DELTA="0" UNITS="m" Submodel_Name="SD0000A" SAVE_VALUE="1"/>
+  </VAR>
+  <VAR VARNUM="7" CIRCUIT_SCOPE_ID="19" TITLE="acceleration at port 1" Data_Path="accel@mass1port" Submodel_Instance="1" IS_DELTA="0" UNITS="m/s/s" Submodel_Name="MAS001" SAVE_VALUE="1"/>
+  <VAR VARNUM="8" CIRCUIT_SCOPE_ID="49" TITLE="duplicate of force at port 1" Data_Path="force2@springdamper01" Submodel_Instance="1" IS_DELTA="0" UNITS="N" Submodel_Name="SD0000A" SAVE_VALUE="1">
+   <TIE_VAR VARNUM="8" CIRCUIT_SCOPE_ID="20" TITLE="force at port 1" Data_Path="force@mass1port" VAR_DIM="1" Submodel_Instance="1" IS_DELTA="0" UNITS="N" Submodel_Name="MAS001" SAVE_VALUE="1"/>
+  </VAR>
+  <VAR VARNUM="9" CIRCUIT_SCOPE_ID="37" TITLE="spring force" Data_Path="force@springdamper01" Submodel_Instance="1" IS_DELTA="0" UNITS="N" Submodel_Name="SD0000A" SAVE_VALUE="1"/>
+  <VAR VARNUM="10" CIRCUIT_SCOPE_ID="38" TITLE="spring compression" Data_Path="x@springdamper01" Submodel_Instance="1" IS_DELTA="0" UNITS="m" Submodel_Name="SD0000A" SAVE_VALUE="1"/>
+  <VAR VARNUM="11" CIRCUIT_SCOPE_ID="39" TITLE="spring stiffness value" Data_Path="kval@springdamper01" Submodel_Instance="1" IS_DELTA="0" UNITS="N/m" Submodel_Name="SD0000A" SAVE_VALUE="1"/>
+  <VAR CIRCUIT_SCOPE_ID="41" HIDDEN="1" SAVE_VALUE="0"/>
+  <VAR CIRCUIT_SCOPE_ID="44" HIDDEN="1" SAVE_VALUE="0"/>
+  <VAR VARNUM="14" CIRCUIT_SCOPE_ID="70" TITLE="force at port 1" Data_Path="force1@springdamper01_1" Submodel_Instance="2" IS_DELTA="0" UNITS="N" Submodel_Name="SD0000A" SAVE_VALUE="1"/>
+  <VAR VARNUM="15" CIRCUIT_SCOPE_ID="90" TITLE="linear velocity (always zero)" Data_Path="vzero@zerospeedsource" Submodel_Instance="1" VAR_HASSTART_VALUE="1" IS_DELTA="0" UNITS="m/s" Submodel_Name="V001" SAVE_VALUE="1">
+   <TIE_VAR VARNUM="15" CIRCUIT_SCOPE_ID="71" TITLE="velocity at port 1" Data_Path="vel1@springdamper01_1" VAR_DIM="1" Submodel_Instance="2" IS_DELTA="0" UNITS="m/s" Submodel_Name="SD0000A" SAVE_VALUE="1"/>
+  </VAR>
+  <VAR VARNUM="16" CIRCUIT_SCOPE_ID="91" TITLE="linear displacement" Data_Path="x@zerospeedsource" Submodel_Instance="1" VAR_HASSTART_VALUE="1" IS_DELTA="0" UNITS="m" Submodel_Name="V001" SAVE_VALUE="1">
+   <TIE_VAR VARNUM="16" CIRCUIT_SCOPE_ID="72" TITLE="displacement at port 1" Data_Path="x1@springdamper01_1" VAR_DIM="1" Submodel_Instance="2" IS_DELTA="0" UNITS="m" Submodel_Name="SD0000A" SAVE_VALUE="1"/>
+  </VAR>
+  <VAR VARNUM="17" CIRCUIT_SCOPE_ID="92" TITLE="linear acceleration (always zero)" Data_Path="azero@zerospeedsource" Submodel_Instance="1" VAR_HASSTART_VALUE="1" IS_DELTA="0" UNITS="m/s/s" Submodel_Name="V001" SAVE_VALUE="1"/>
+  <VAR VARNUM="18" CIRCUIT_SCOPE_ID="101" TITLE="velocity at port 1" Data_Path="va@mass2port" Submodel_Instance="1" VAR_HASSTART_VALUE="1" IS_DELTA="0" UNITS="m/s" Submodel_Name="MAS002" SAVE_VALUE="1">
+   <TIE_VAR VARNUM="18" CIRCUIT_SCOPE_ID="74" TITLE="velocity at port 2" Data_Path="vel2@springdamper01_1" VAR_DIM="1" Submodel_Instance="2" IS_DELTA="0" UNITS="m/s" Submodel_Name="SD0000A" SAVE_VALUE="1"/>
+  </VAR>
+  <VAR VARNUM="19" CIRCUIT_SCOPE_ID="102" TITLE="displacement port 1" Data_Path="x@mass2port" Submodel_Instance="1" VAR_HASSTART_VALUE="1" IS_DELTA="0" UNITS="m" Submodel_Name="MAS002" SAVE_VALUE="1">
+   <TIE_VAR VARNUM="19" CIRCUIT_SCOPE_ID="75" TITLE="displacement at port 2" Data_Path="x2@springdamper01_1" VAR_DIM="1" Submodel_Instance="2" IS_DELTA="0" UNITS="m" Submodel_Name="SD0000A" SAVE_VALUE="1"/>
+  </VAR>
+  <VAR VARNUM="20" CIRCUIT_SCOPE_ID="103" TITLE="acceleration at port 1" Data_Path="accel@mass2port" Submodel_Instance="1" IS_DELTA="0" UNITS="m/s/s" Submodel_Name="MAS002" SAVE_VALUE="1"/>
+  <VAR VARNUM="21" CIRCUIT_SCOPE_ID="73" TITLE="duplicate of force at port 1" Data_Path="force2@springdamper01_1" Submodel_Instance="2" IS_DELTA="0" UNITS="N" Submodel_Name="SD0000A" SAVE_VALUE="1">
+   <TIE_VAR VARNUM="21" CIRCUIT_SCOPE_ID="104" TITLE="force at port 1" Data_Path="fa@mass2port" VAR_DIM="1" Submodel_Instance="1" IS_DELTA="0" UNITS="N" Submodel_Name="MAS002" SAVE_VALUE="1"/>
+  </VAR>
+  <VAR VARNUM="22" CIRCUIT_SCOPE_ID="61" TITLE="spring force" Data_Path="force@springdamper01_1" Submodel_Instance="2" IS_DELTA="0" UNITS="N" Submodel_Name="SD0000A" SAVE_VALUE="1"/>
+  <VAR VARNUM="23" CIRCUIT_SCOPE_ID="62" TITLE="spring compression" Data_Path="x@springdamper01_1" Submodel_Instance="2" IS_DELTA="0" UNITS="m" Submodel_Name="SD0000A" SAVE_VALUE="1"/>
+  <VAR VARNUM="24" CIRCUIT_SCOPE_ID="63" TITLE="spring stiffness value" Data_Path="kval@springdamper01_1" Submodel_Instance="2" IS_DELTA="0" UNITS="N/m" Submodel_Name="SD0000A" SAVE_VALUE="1"/>
+  <VAR CIRCUIT_SCOPE_ID="65" HIDDEN="1" SAVE_VALUE="0"/>
+  <VAR CIRCUIT_SCOPE_ID="68" HIDDEN="1" SAVE_VALUE="0"/>
+  <VAR CIRCUIT_SCOPE_ID="96" HIDDEN="1" SAVE_VALUE="0"/>
+  <VAR CIRCUIT_SCOPE_ID="99" HIDDEN="1" SAVE_VALUE="0"/>
+  <VAR CIRCUIT_SCOPE_ID="12" HIDDEN="1" SAVE_VALUE="0"/>
+  <VAR CIRCUIT_SCOPE_ID="14" HIDDEN="1" SAVE_VALUE="0"/>
+ </VARS_LIST>
+</VL>

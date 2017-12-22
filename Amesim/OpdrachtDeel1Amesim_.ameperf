@@ -1,0 +1,17 @@
+<ameperf>
+   <header run_analysis="true" doc_version="1">
+      <events_desc separator=";">
+         <event_desc id="SC">
+            <property index="1" key="time" type="double"/>
+            <property index="2" key="var_id_counts" type="string"/>
+         </event_desc>
+         <event_desc id="DISC">
+            <property index="1" key="time" type="double"/>
+            <property index="2" key="submodelname_counts" type="string"/>
+         </event_desc>
+      </events_desc>
+   </header>
+SC;00003.16227607903074e-009;3,1 
+SC;00004.33347541911067e+000;1,339 2,14 3,639 4,9 
+SC;00001.00000000000000e+001;1,985 2,52 
+</ameperf>

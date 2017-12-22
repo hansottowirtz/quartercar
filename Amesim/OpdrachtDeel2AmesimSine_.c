@@ -255,8 +255,8 @@ static const char* submodelNameArray[NB_SUBMODELNAME] = {
   ,"MAS002 instance 1"
   ,"SD0000A instance 2"
   ,"XVLC01 instance 1"
-  ,"SIN0 instance 1"
   ,"MAS001 instance 1"
+  ,"SIN0 instance 1"
 };
 
 static ParamInfo ModelParamInfo[ NB_PARAMS ] = {
@@ -270,8 +270,8 @@ static ParamInfo ModelParamInfo[ NB_PARAMS ] = {
    {IntegerParam,     Expression,     1,    -1, PARAMETER_CATEGORY,     0},
    {RealParam,        Expression,     6,    -1, PARAMETER_CATEGORY,     1},
    {RealParam,        Expression,     7,    -1, PARAMETER_CATEGORY,     1},
-   {StateVar,         Expression,     0,     0, STATE_CATEGORY,         1},
-   {StateVar,         Expression,     1,     1, STATE_CATEGORY,         1},
+   {StateVar,         Expression,     2,    14, STATE_CATEGORY,         1},
+   {StateVar,         Expression,     3,    15, STATE_CATEGORY,         1},
    {RealParam,        Expression,     8,    -1, PARAMETER_CATEGORY,     2},
    {RealParam,        Expression,     9,    -1, PARAMETER_CATEGORY,     2},
    {RealParam,        Expression,    10,    -1, PARAMETER_CATEGORY,     2},
@@ -286,12 +286,12 @@ static ParamInfo ModelParamInfo[ NB_PARAMS ] = {
    {StateVar,         Expression,     4,    28, STATE_CATEGORY,         3},
    {RealParam,        Expression,    16,    -1, PARAMETER_CATEGORY,     4},
    {RealParam,        Expression,    17,    -1, PARAMETER_CATEGORY,     4},
-   {RealParam,        Expression,    18,    -1, PARAMETER_CATEGORY,     4},
-   {RealParam,        Expression,    19,    -1, PARAMETER_CATEGORY,     4},
+   {StateVar,         Expression,     0,     4, STATE_CATEGORY,         4},
+   {StateVar,         Expression,     1,     5, STATE_CATEGORY,         4},
+   {RealParam,        Expression,    18,    -1, PARAMETER_CATEGORY,     5},
+   {RealParam,        Expression,    19,    -1, PARAMETER_CATEGORY,     5},
    {RealParam,        Expression,    20,    -1, PARAMETER_CATEGORY,     5},
-   {RealParam,        Expression,    21,    -1, PARAMETER_CATEGORY,     5},
-   {StateVar,         Expression,     2,     4, STATE_CATEGORY,         5},
-   {StateVar,         Expression,     3,     5, STATE_CATEGORY,         5}
+   {RealParam,        Expression,    21,    -1, PARAMETER_CATEGORY,     5}
 };
 static double      RealParamArray   [ NB_REAL_PARAMS ];
 static int         IntegerParamArray[ NB_INTEGER_PARAMS ];
@@ -311,11 +311,11 @@ static double *RP2 = &RealParamArray[ 8 ];
 static int *IP2 = &IntegerParamArray[ 2 ];
 static double *RP3 = &RealParamArray[ 14 ];
 static int *IP3 = &IntegerParamArray[ 4 ];
-static double RS4[ 2 ];
+static double RS4[ 1 ];
+static int IS4[ 3 ];
 static double *RP4 = &RealParamArray[ 16 ];
-static double RS5[ 1 ];
-static int IS5[ 3 ];
-static double *RP5 = &RealParamArray[ 20 ];
+static double RS5[ 2 ];
+static double *RP5 = &RealParamArray[ 18 ];
 
 
 /* **********  Various static declrs for use in this file ***/
@@ -602,9 +602,6 @@ extern void xvlc01in_(int *n, double *RP, int *IP, double *y0
 extern void xvlc01_(int *n, double *ve0, double *ve1, double *ve2
                    , double *vi3, double *vidot3, double *RP, int *IP
                  );
-extern void sin0in_(int *n, double *RP, double *RS);
-extern void sin0_(int *n, double *ve0, double *RP, double *RS
-                 , double *t);
 extern void mas001in_(int *n, double *RP, double *RS, int *IS
                  , double *y0, double *y1, double *y2, double *y3
                    , double *y4, double *y5);
@@ -615,6 +612,9 @@ extern void mas001_(int *n, double *ve0, double *vedot0, double *ve1
                    , double *vi8, double *vidot8, double *vi9
                    , double *vidot9, double *RP, double *RS, int *IS
                  );
+extern void sin0in_(int *n, double *RP, double *RS);
+extern void sin0_(int *n, double *ve0, double *RP, double *RS
+                 , double *t);
 
 
 
@@ -775,11 +775,11 @@ static void SetInitValues(AMESIMSYSTEM *amesys)
       double *y = amesys->states;
       double *Z = amesys->discrete_states;
 
-   ChangeState(&y[0], v[0]);
-   ChangeState(&y[1], v[1]);
+   ChangeState(&y[2], v[14]);
+   ChangeState(&y[3], v[15]);
    ChangeState(&y[4], v[28]);
-   ChangeState(&y[2], v[4]);
-   ChangeState(&y[3], v[5]);
+   ChangeState(&y[0], v[4]);
+   ChangeState(&y[1], v[5]);
 
    }
 }
@@ -817,23 +817,23 @@ static void Initialize(AMESIMSYSTEM *amesys, double *y)
 
 
    n = 1;
-   sin0in_(&n, RP4, RS4);
+   sin0in_(&n, RP5, RS5);
 
    n = 1;
    xvlc01in_(&n, RP3, IP3, &y[4]);
-
-   n = 1;
-   sd0000ain_(&n, RP0, IP0, RS0, IS0, NULL, NULL, NULL, NULL);
 
    n = 2;
    sd0000ain_(&n, RP2, IP2, RS2, IS2, NULL, NULL, NULL, NULL);
 
    n = 1;
-   mas001in_(&n, RP5, RS5, IS5, &y[2], &y[3], NULL, NULL, NULL
+   sd0000ain_(&n, RP0, IP0, RS0, IS0, NULL, NULL, NULL, NULL);
+
+   n = 1;
+   mas002in_(&n, RP1, RS1, IS1, &y[2], &y[3], NULL, NULL, NULL
       , NULL);
 
    n = 1;
-   mas002in_(&n, RP1, RS1, IS1, &y[0], &y[1], NULL, NULL, NULL
+   mas001in_(&n, RP4, RS4, IS4, &y[0], &y[1], NULL, NULL, NULL
       , NULL);
 
 }
@@ -899,11 +899,11 @@ static void localFunctionEval(AMESIMSYSTEM *amesys, double *dot, double *y, doub
    /* Assign the state variables y[] calculated by the integrator 
       to the appropriate variables v[]. */
 
-   v[0] = y[0];
-   v[1] = y[1];
+   v[14] = y[2];
+   v[15] = y[3];
    v[28] = y[4];
-   v[4] = y[2];
-   v[5] = y[3];
+   v[4] = y[0];
+   v[5] = y[1];
 
    /* Assign the interface input variables to the appropriate variable v(). */
  
@@ -925,7 +925,7 @@ static void localFunctionEval(AMESIMSYSTEM *amesys, double *dot, double *y, doub
 
    n = 1;
    *oldflag = *newflag = sflag;
-   sin0_(&n, &v[27], RP4, RS4, &t);
+   sin0_(&n, &v[27], RP5, RS5, &t);
    AME_POST_SUBMODCALL_WITH_DISCON(flag,&sflag,&oflag,&panic,"SIN0",1);
 
    n = 1;
@@ -934,20 +934,10 @@ static void localFunctionEval(AMESIMSYSTEM *amesys, double *dot, double *y, doub
       );
    AME_POST_SUBMODCALL_WITH_DISCON(flag,&sflag,&oflag,&panic,"XVLC01",1);
 
-   n = 1;
-   *oldflag = *newflag = sflag;
-   sd0000a_(&n, &v[3], &v[0], &v[1], &v[4], &v[5], &v[8], &v[9]
-      , &v[10], NULL, NULL, &v[11], NULL, NULL, NULL, NULL, &v[12]
-      , NULL, NULL, RP0, IP0, RS0, IS0);
-   AME_POST_SUBMODCALL_WITH_DISCON(flag,&sflag,&oflag,&panic,"SD0000A",1);
-
-   v[7] = v[3] /* Duplicate variable. */;
+   v[0] = -v[14] /* Duplicate variable. */;
    AME_POST_SUBMODCALL_NO_DISCON(flag);
 
-   v[14] = -v[0] /* Duplicate variable. */;
-   AME_POST_SUBMODCALL_NO_DISCON(flag);
-
-   v[15] = -v[1] /* Duplicate variable. */;
+   v[1] = -v[15] /* Duplicate variable. */;
    AME_POST_SUBMODCALL_NO_DISCON(flag);
 
    n = 2;
@@ -962,20 +952,30 @@ static void localFunctionEval(AMESIMSYSTEM *amesys, double *dot, double *y, doub
 
    n = 1;
    *oldflag = *newflag = sflag;
-   mas001_(&n, &v[4], &dot[2], &v[5], &dot[3], &v[6], &v[7], NULL
-      , NULL, &v[29], NULL, NULL, &v[30], NULL, NULL, NULL, NULL
-      , RP5, RS5, IS5);
-   AME_POST_SUBMODCALL_WITH_DISCON(flag,&sflag,&oflag,&panic,"MAS001",1);
+   sd0000a_(&n, &v[3], &v[0], &v[1], &v[4], &v[5], &v[8], &v[9]
+      , &v[10], NULL, NULL, &v[11], NULL, NULL, NULL, NULL, &v[12]
+      , NULL, NULL, RP0, IP0, RS0, IS0);
+   AME_POST_SUBMODCALL_WITH_DISCON(flag,&sflag,&oflag,&panic,"SD0000A",1);
+
+   v[7] = v[3] /* Duplicate variable. */;
+   AME_POST_SUBMODCALL_NO_DISCON(flag);
 
    n = 1;
    *oldflag = *newflag = sflag;
-   mas002_(&n, &v[0], &dot[0], &v[1], &dot[1], &v[2], &v[3], &v[13]
-      , NULL, NULL, &v[17], NULL, NULL, NULL, NULL, &v[18], NULL
-      , NULL, RP1, RS1, IS1);
+   mas002_(&n, &v[14], &dot[2], &v[15], &dot[3], &v[16], &v[13]
+      , &v[3], NULL, NULL, &v[17], NULL, NULL, NULL, NULL, &v[18]
+      , NULL, NULL, RP1, RS1, IS1);
    AME_POST_SUBMODCALL_WITH_DISCON(flag,&sflag,&oflag,&panic,"MAS002",1);
 
-   v[16] = -v[2] /* Duplicate variable. */;
+   v[2] = -v[16] /* Duplicate variable. */;
    AME_POST_SUBMODCALL_NO_DISCON(flag);
+
+   n = 1;
+   *oldflag = *newflag = sflag;
+   mas001_(&n, &v[4], &dot[0], &v[5], &dot[1], &v[6], &v[7], NULL
+      , NULL, &v[29], NULL, NULL, &v[30], NULL, NULL, NULL, NULL
+      , RP4, RS4, IS4);
+   AME_POST_SUBMODCALL_WITH_DISCON(flag,&sflag,&oflag,&panic,"MAS001",1);
 
 
    /* Set interface outputs here. */
@@ -987,11 +987,11 @@ static void localFunctionEval(AMESIMSYSTEM *amesys, double *dot, double *y, doub
          is permitted to change the state variables
          and discrete variables. */
 
-      ChangeState(&y[0], v[0]);
-      ChangeState(&y[1], v[1]);
+      ChangeState(&y[2], v[14]);
+      ChangeState(&y[3], v[15]);
       ChangeState(&y[4], v[28]);
-      ChangeState(&y[2], v[4]);
-      ChangeState(&y[3], v[5]);
+      ChangeState(&y[0], v[4]);
+      ChangeState(&y[1], v[5]);
    }
    for (i = 0; i < NUMSTATES; i++)
    {
@@ -1041,50 +1041,6 @@ static void localJFunctionEval(AMESIMSYSTEM *amesys, double *dot, double *y, dou
    switch (col)
    {
       case 0:
-         v[0] = y[col];
-         n = 1;
-         sd0000a_(&n, &v[3], &v[0], &v[1], &v[4], &v[5], &v[8]
-            , &v[9], &v[10], NULL, NULL, &v[11], NULL, NULL, NULL
-            , NULL, &v[12], NULL, NULL, RP0, IP0, RS0, IS0);
-         v[7] = v[3] /* Duplicate variable. */;
-         v[14] = -v[0] /* Duplicate variable. */;
-         n = 2;
-         sd0000a_(&n, &v[21], &v[19], &v[20], &v[14], &v[15], &v[22]
-            , &v[23], &v[24], NULL, NULL, &v[25], NULL, NULL, NULL
-            , NULL, &v[26], NULL, NULL, RP2, IP2, RS2, IS2);
-         v[13] = v[21] /* Duplicate variable. */;
-         n = 1;
-         mas001_(&n, &v[4], &dot[2], &v[5], &dot[3], &v[6], &v[7]
-            , NULL, NULL, &v[29], NULL, NULL, &v[30], NULL, NULL
-            , NULL, NULL, RP5, RS5, IS5);
-         n = 1;
-         mas002_(&n, &v[0], &dot[0], &v[1], &dot[1], &v[2], &v[3]
-            , &v[13], NULL, NULL, &v[17], NULL, NULL, NULL, NULL
-            , &v[18], NULL, NULL, RP1, RS1, IS1);
-      break;
-      case 1:
-         v[1] = y[col];
-         n = 1;
-         sd0000a_(&n, &v[3], &v[0], &v[1], &v[4], &v[5], &v[8]
-            , &v[9], &v[10], NULL, NULL, &v[11], NULL, NULL, NULL
-            , NULL, &v[12], NULL, NULL, RP0, IP0, RS0, IS0);
-         v[7] = v[3] /* Duplicate variable. */;
-         v[15] = -v[1] /* Duplicate variable. */;
-         n = 2;
-         sd0000a_(&n, &v[21], &v[19], &v[20], &v[14], &v[15], &v[22]
-            , &v[23], &v[24], NULL, NULL, &v[25], NULL, NULL, NULL
-            , NULL, &v[26], NULL, NULL, RP2, IP2, RS2, IS2);
-         v[13] = v[21] /* Duplicate variable. */;
-         n = 1;
-         mas001_(&n, &v[4], &dot[2], &v[5], &dot[3], &v[6], &v[7]
-            , NULL, NULL, &v[29], NULL, NULL, &v[30], NULL, NULL
-            , NULL, NULL, RP5, RS5, IS5);
-         n = 1;
-         mas002_(&n, &v[0], &dot[0], &v[1], &dot[1], &v[2], &v[3]
-            , &v[13], NULL, NULL, &v[17], NULL, NULL, NULL, NULL
-            , &v[18], NULL, NULL, RP1, RS1, IS1);
-      break;
-      case 2:
          v[4] = y[col];
          n = 1;
          sd0000a_(&n, &v[3], &v[0], &v[1], &v[4], &v[5], &v[8]
@@ -1092,15 +1048,16 @@ static void localJFunctionEval(AMESIMSYSTEM *amesys, double *dot, double *y, dou
             , NULL, &v[12], NULL, NULL, RP0, IP0, RS0, IS0);
          v[7] = v[3] /* Duplicate variable. */;
          n = 1;
-         mas001_(&n, &v[4], &dot[2], &v[5], &dot[3], &v[6], &v[7]
-            , NULL, NULL, &v[29], NULL, NULL, &v[30], NULL, NULL
-            , NULL, NULL, RP5, RS5, IS5);
+         mas002_(&n, &v[14], &dot[2], &v[15], &dot[3], &v[16]
+            , &v[13], &v[3], NULL, NULL, &v[17], NULL, NULL, NULL
+            , NULL, &v[18], NULL, NULL, RP1, RS1, IS1);
+         v[2] = -v[16] /* Duplicate variable. */;
          n = 1;
-         mas002_(&n, &v[0], &dot[0], &v[1], &dot[1], &v[2], &v[3]
-            , &v[13], NULL, NULL, &v[17], NULL, NULL, NULL, NULL
-            , &v[18], NULL, NULL, RP1, RS1, IS1);
+         mas001_(&n, &v[4], &dot[0], &v[5], &dot[1], &v[6], &v[7]
+            , NULL, NULL, &v[29], NULL, NULL, &v[30], NULL, NULL
+            , NULL, NULL, RP4, RS4, IS4);
       break;
-      case 3:
+      case 1:
          v[5] = y[col];
          n = 1;
          sd0000a_(&n, &v[3], &v[0], &v[1], &v[4], &v[5], &v[8]
@@ -1108,13 +1065,60 @@ static void localJFunctionEval(AMESIMSYSTEM *amesys, double *dot, double *y, dou
             , NULL, &v[12], NULL, NULL, RP0, IP0, RS0, IS0);
          v[7] = v[3] /* Duplicate variable. */;
          n = 1;
-         mas001_(&n, &v[4], &dot[2], &v[5], &dot[3], &v[6], &v[7]
-            , NULL, NULL, &v[29], NULL, NULL, &v[30], NULL, NULL
-            , NULL, NULL, RP5, RS5, IS5);
+         mas002_(&n, &v[14], &dot[2], &v[15], &dot[3], &v[16]
+            , &v[13], &v[3], NULL, NULL, &v[17], NULL, NULL, NULL
+            , NULL, &v[18], NULL, NULL, RP1, RS1, IS1);
+         v[2] = -v[16] /* Duplicate variable. */;
          n = 1;
-         mas002_(&n, &v[0], &dot[0], &v[1], &dot[1], &v[2], &v[3]
-            , &v[13], NULL, NULL, &v[17], NULL, NULL, NULL, NULL
-            , &v[18], NULL, NULL, RP1, RS1, IS1);
+         mas001_(&n, &v[4], &dot[0], &v[5], &dot[1], &v[6], &v[7]
+            , NULL, NULL, &v[29], NULL, NULL, &v[30], NULL, NULL
+            , NULL, NULL, RP4, RS4, IS4);
+      break;
+      case 2:
+         v[14] = y[col];
+         v[0] = -v[14] /* Duplicate variable. */;
+         n = 2;
+         sd0000a_(&n, &v[21], &v[19], &v[20], &v[14], &v[15], &v[22]
+            , &v[23], &v[24], NULL, NULL, &v[25], NULL, NULL, NULL
+            , NULL, &v[26], NULL, NULL, RP2, IP2, RS2, IS2);
+         v[13] = v[21] /* Duplicate variable. */;
+         n = 1;
+         sd0000a_(&n, &v[3], &v[0], &v[1], &v[4], &v[5], &v[8]
+            , &v[9], &v[10], NULL, NULL, &v[11], NULL, NULL, NULL
+            , NULL, &v[12], NULL, NULL, RP0, IP0, RS0, IS0);
+         v[7] = v[3] /* Duplicate variable. */;
+         n = 1;
+         mas002_(&n, &v[14], &dot[2], &v[15], &dot[3], &v[16]
+            , &v[13], &v[3], NULL, NULL, &v[17], NULL, NULL, NULL
+            , NULL, &v[18], NULL, NULL, RP1, RS1, IS1);
+         v[2] = -v[16] /* Duplicate variable. */;
+         n = 1;
+         mas001_(&n, &v[4], &dot[0], &v[5], &dot[1], &v[6], &v[7]
+            , NULL, NULL, &v[29], NULL, NULL, &v[30], NULL, NULL
+            , NULL, NULL, RP4, RS4, IS4);
+      break;
+      case 3:
+         v[15] = y[col];
+         v[1] = -v[15] /* Duplicate variable. */;
+         n = 2;
+         sd0000a_(&n, &v[21], &v[19], &v[20], &v[14], &v[15], &v[22]
+            , &v[23], &v[24], NULL, NULL, &v[25], NULL, NULL, NULL
+            , NULL, &v[26], NULL, NULL, RP2, IP2, RS2, IS2);
+         v[13] = v[21] /* Duplicate variable. */;
+         n = 1;
+         sd0000a_(&n, &v[3], &v[0], &v[1], &v[4], &v[5], &v[8]
+            , &v[9], &v[10], NULL, NULL, &v[11], NULL, NULL, NULL
+            , NULL, &v[12], NULL, NULL, RP0, IP0, RS0, IS0);
+         v[7] = v[3] /* Duplicate variable. */;
+         n = 1;
+         mas002_(&n, &v[14], &dot[2], &v[15], &dot[3], &v[16]
+            , &v[13], &v[3], NULL, NULL, &v[17], NULL, NULL, NULL
+            , NULL, &v[18], NULL, NULL, RP1, RS1, IS1);
+         v[2] = -v[16] /* Duplicate variable. */;
+         n = 1;
+         mas001_(&n, &v[4], &dot[0], &v[5], &dot[1], &v[6], &v[7]
+            , NULL, NULL, &v[29], NULL, NULL, &v[30], NULL, NULL
+            , NULL, NULL, RP4, RS4, IS4);
       break;
       case 4:
          v[28] = y[col];
@@ -1127,9 +1131,10 @@ static void localJFunctionEval(AMESIMSYSTEM *amesys, double *dot, double *y, dou
             , NULL, &v[26], NULL, NULL, RP2, IP2, RS2, IS2);
          v[13] = v[21] /* Duplicate variable. */;
          n = 1;
-         mas002_(&n, &v[0], &dot[0], &v[1], &dot[1], &v[2], &v[3]
-            , &v[13], NULL, NULL, &v[17], NULL, NULL, NULL, NULL
-            , &v[18], NULL, NULL, RP1, RS1, IS1);
+         mas002_(&n, &v[14], &dot[2], &v[15], &dot[3], &v[16]
+            , &v[13], &v[3], NULL, NULL, &v[17], NULL, NULL, NULL
+            , NULL, &v[18], NULL, NULL, RP1, RS1, IS1);
+         v[2] = -v[16] /* Duplicate variable. */;
       break;
    }
    
@@ -1269,9 +1274,9 @@ static void reset_real_integer_stores()
   RS1[0] = 0.0; 
   IS2[0] = IS2[1] = IS2[2] = IS2[3] = 0; 
   RS2[0] = RS2[1] = 0.0; 
-  RS4[0] = RS4[1] = 0.0; 
-  IS5[0] = IS5[1] = IS5[2] = 0; 
-  RS5[0] = 0.0; 
+  IS4[0] = IS4[1] = IS4[2] = 0; 
+  RS4[0] = 0.0; 
+  RS5[0] = RS5[1] = 0.0; 
 
 /*  END of generated code for 'InsertInterfaceReset C IC' */
       ;

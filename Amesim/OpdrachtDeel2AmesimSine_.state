@@ -1,5 +1,5 @@
-MAS002 instance 1 velocity at port 1 [m/s] Data_Path=va@mass2port
-MAS002 instance 1 displacement port 1 [m] Data_Path=x@mass2port
 MAS001 instance 1 velocity at port 1 [m/s] Data_Path=v@mass1port
 MAS001 instance 1 displacement port 1 [m] Data_Path=x@mass1port
+MAS002 instance 1 velocity at port 1 [m/s] Data_Path=va@mass2port
+MAS002 instance 1 displacement port 1 [m] Data_Path=x@mass2port
 XVLC01 instance 1 (dummy) state scalar derivative  [m] Data_Path=dummy@linearxvfromxcon

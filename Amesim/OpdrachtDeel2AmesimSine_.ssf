@@ -1,6 +1,6 @@
-1 MAS002 instance 1 velocity at port 1 [m/s] Param_Id=101 Data_Path=va@mass2port
-1 MAS002 instance 1 displacement port 1 [m] Param_Id=102 Data_Path=x@mass2port
-1 MAS002 instance 1 acceleration at port 1 [m/s/s] Param_Id=103 Data_Path=accel@mass2port
+1 MAS002 instance 1 sign reversed duplicate of velocity at port 1 [m/s] Param_Id=105 Data_Path=vb@mass2port
+1 MAS002 instance 1 sign reversed duplicate of displacement port 1 [m] Param_Id=106 Data_Path=xb@mass2port
+1 MAS002 instance 1 sign reversed duplicate of acceleration at port 1 [m/s/s] Param_Id=107 Data_Path=ab@mass2port
 1 SD0000A instance 1 force at port 1 [N] Param_Id=46 Data_Path=force1@springdamper01
 1 MAS001 instance 1 velocity at port 1 [m/s] Param_Id=17 Data_Path=v@mass1port
 1 MAS001 instance 1 displacement port 1 [m] Param_Id=18 Data_Path=x@mass1port
@@ -12,13 +12,11 @@
 0 HIDDEN Param_Id=41
 0 HIDDEN Param_Id=44
 1 SD0000A instance 2 duplicate of force at port 1 [N] Param_Id=73 Data_Path=force2@springdamper01_1
-1 MAS002 instance 1 sign reversed duplicate of velocity at port 1 [m/s] Param_Id=105 Data_Path=vb@mass2port
-1 MAS002 instance 1 sign reversed duplicate of displacement port 1 [m] Param_Id=106 Data_Path=xb@mass2port
-1 MAS002 instance 1 sign reversed duplicate of acceleration at port 1 [m/s/s] Param_Id=107 Data_Path=ab@mass2port
+1 MAS002 instance 1 velocity at port 1 [m/s] Param_Id=101 Data_Path=va@mass2port
+1 MAS002 instance 1 displacement port 1 [m] Param_Id=102 Data_Path=x@mass2port
+1 MAS002 instance 1 acceleration at port 1 [m/s/s] Param_Id=103 Data_Path=accel@mass2port
 0 HIDDEN Param_Id=96
 0 HIDDEN Param_Id=99
-0 HIDDEN Param_Id=12
-0 HIDDEN Param_Id=14
 1 XVLC01 instance 1 velocity output [m/s] Param_Id=122 Data_Path=v@linearxvfromxcon
 1 XVLC01 instance 1 displacement output [m] Param_Id=123 Data_Path=x@linearxvfromxcon
 1 SD0000A instance 2 force at port 1 [N] Param_Id=70 Data_Path=force1@springdamper01_1
@@ -29,3 +27,5 @@
 0 HIDDEN Param_Id=68
 1 SIN0 instance 1 sine wave output Param_Id=116 Data_Path=output@sinewave
 0 HIDDEN Param_Id=120
+0 HIDDEN Param_Id=12
+0 HIDDEN Param_Id=14

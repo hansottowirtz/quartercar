@@ -1,6 +1,6 @@
-MAS002 instance 1 velocity at port 1 [m/s] Data_Path=va@mass2port
-MAS002 instance 1 displacement port 1 [m] Data_Path=x@mass2port
-MAS002 instance 1 acceleration at port 1 [m/s/s] Data_Path=accel@mass2port
+MAS002 instance 1 sign reversed duplicate of velocity at port 1 [m/s] Data_Path=vb@mass2port
+MAS002 instance 1 sign reversed duplicate of displacement port 1 [m] Data_Path=xb@mass2port
+MAS002 instance 1 sign reversed duplicate of acceleration at port 1 [m/s/s] Data_Path=ab@mass2port
 SD0000A instance 1 force at port 1 [N] Data_Path=force1@springdamper01
 MAS001 instance 1 velocity at port 1 [m/s] Data_Path=v@mass1port
 MAS001 instance 1 displacement port 1 [m] Data_Path=x@mass1port
@@ -12,9 +12,9 @@ SD0000A instance 1 spring stiffness value [N/m] Data_Path=kval@springdamper01
 HIDDEN
 HIDDEN
 SD0000A instance 2 duplicate of force at port 1 [N] Data_Path=force2@springdamper01_1
-MAS002 instance 1 sign reversed duplicate of velocity at port 1 [m/s] Data_Path=vb@mass2port
-MAS002 instance 1 sign reversed duplicate of displacement port 1 [m] Data_Path=xb@mass2port
-MAS002 instance 1 sign reversed duplicate of acceleration at port 1 [m/s/s] Data_Path=ab@mass2port
+MAS002 instance 1 velocity at port 1 [m/s] Data_Path=va@mass2port
+MAS002 instance 1 displacement port 1 [m] Data_Path=x@mass2port
+MAS002 instance 1 acceleration at port 1 [m/s/s] Data_Path=accel@mass2port
 HIDDEN
 HIDDEN
 XVLC01 instance 1 velocity output [m/s] Data_Path=v@linearxvfromxcon

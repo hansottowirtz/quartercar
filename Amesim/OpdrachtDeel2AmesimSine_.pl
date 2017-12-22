@@ -22,14 +22,6 @@
   <PARAMETER Data_Path="energySgrav@mass2port" TITLE="energy of mechanical source (grav)" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS002" UNITS="J" VALUE="0.00000000000000e+000" Param_Id="100"/>
   <PARAMETER Data_Path="mass@mass2port" TITLE="mass" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS002" UNITS="kg" VALUE="1.00000000000000e+02" Param_Id="93"/>
   <PARAMETER Data_Path="theta@mass2port" TITLE="inclination (+90 port 1 lowest, -90 port 1 highest)" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS002" UNITS="degree" VALUE="0.00000000000000e+00" Param_Id="94"/>
-  <PARAMETER Data_Path="v@mass1port" TITLE="velocity at port 1" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS001" UNITS="m/s" VALUE="0.00000000000000e+000" Param_Id="17"/>
-  <PARAMETER Data_Path="x@mass1port" TITLE="displacement port 1" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS001" UNITS="m" VALUE="0.00000000000000e+00" Param_Id="18"/>
-  <PARAMETER Data_Path="actImass@mass1port" TITLE="activity of mechanical inertia (mass)" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS001" UNITS="J" VALUE="0.00000000000000e+000" Param_Id="11"/>
-  <PARAMETER Data_Path="energyImass@mass1port" TITLE="energy of mechanical inertia (mass)" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS001" UNITS="J" VALUE="0.00000000000000e+000" Param_Id="13"/>
-  <PARAMETER Data_Path="energySgrav@mass1port" TITLE="energy of mechanical source (grav)" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS001" UNITS="J" VALUE="0.00000000000000e+000" Param_Id="15"/>
-  <PARAMETER Data_Path="actSgrav@mass1port" TITLE="activity of mechanical source (grav)" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS001" UNITS="J" VALUE="0.00000000000000e+000" Param_Id="16"/>
-  <PARAMETER Data_Path="mass@mass1port" TITLE="mass" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS001" UNITS="kg" VALUE="4.00000000000000e+02" Param_Id="9"/>
-  <PARAMETER Data_Path="theta@mass1port" TITLE="inclination (+90 port 1 lowest, -90 port 1 highest)" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS001" UNITS="degree" VALUE="0.00000000000000e+00" Param_Id="10"/>
   <PARAMETER Data_Path="actCspring@springdamper01_1" TITLE="activity of mechanical capacitance (spring)" Submodel_Instance="2" IS_DELTA="false" Submodel_Name="SD0000A" UNITS="J" VALUE="0.00000000000000e+000" Param_Id="64"/>
   <PARAMETER Data_Path="energyCspring@springdamper01_1" TITLE="energy of mechanical capacitance (spring)" Submodel_Instance="2" IS_DELTA="false" Submodel_Name="SD0000A" UNITS="J" VALUE="0.00000000000000e+000" Param_Id="66"/>
   <PARAMETER Data_Path="actRdamp@springdamper01_1" TITLE="activity of mechanical dissipation (damp)" Submodel_Instance="2" IS_DELTA="false" Submodel_Name="SD0000A" UNITS="J" VALUE="0.00000000000000e+000" Param_Id="67"/>
@@ -46,9 +38,17 @@
   <PARAMETER Data_Path="tau@linearxvfromxcon" TITLE="time constant for derivative of displacement" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="XVLC01" UNITS="s" VALUE="1.00000000000000e-04" Param_Id="117"/>
   <PARAMETER Data_Path="V0@linearxvfromxcon" TITLE="initial velocity" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="XVLC01" UNITS="m/s" VALUE="0.00000000000000e+00" Param_Id="118"/>
   <PARAMETER Data_Path="setVelocity@linearxvfromxcon" TITLE="velocity initialization" Submodel_Instance="1" Submodel_Name="XVLC01" VALUE="1" Param_Id="119"/>
-  <PARAMETER Data_Path="f@sinewave" TITLE="sine wave frequency" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="SIN0" UNITS="Hz" VALUE="5" Param_Id="112"/>
+  <PARAMETER Data_Path="v@mass1port" TITLE="velocity at port 1" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS001" UNITS="m/s" VALUE="0.00000000000000e+000" Param_Id="17"/>
+  <PARAMETER Data_Path="x@mass1port" TITLE="displacement port 1" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS001" UNITS="m" VALUE="0.00000000000000e+000" Param_Id="18"/>
+  <PARAMETER Data_Path="actImass@mass1port" TITLE="activity of mechanical inertia (mass)" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS001" UNITS="J" VALUE="0.00000000000000e+000" Param_Id="11"/>
+  <PARAMETER Data_Path="energyImass@mass1port" TITLE="energy of mechanical inertia (mass)" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS001" UNITS="J" VALUE="0.00000000000000e+000" Param_Id="13"/>
+  <PARAMETER Data_Path="energySgrav@mass1port" TITLE="energy of mechanical source (grav)" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS001" UNITS="J" VALUE="0.00000000000000e+000" Param_Id="15"/>
+  <PARAMETER Data_Path="actSgrav@mass1port" TITLE="activity of mechanical source (grav)" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS001" UNITS="J" VALUE="0.00000000000000e+000" Param_Id="16"/>
+  <PARAMETER Data_Path="mass@mass1port" TITLE="mass" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS001" UNITS="kg" VALUE="4.00000000000000e+02" Param_Id="9"/>
+  <PARAMETER Data_Path="theta@mass1port" TITLE="inclination (+90 port 1 lowest, -90 port 1 highest)" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="MAS001" UNITS="degree" VALUE="0.00000000000000e+00" Param_Id="10"/>
+  <PARAMETER Data_Path="f@sinewave" TITLE="sine wave frequency" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="SIN0" UNITS="Hz" VALUE="5.00000000000000e+00" Param_Id="112"/>
   <PARAMETER Data_Path="level0@sinewave" TITLE="mean level" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="SIN0" UNITS="null" VALUE="0.00000000000000e+00" Param_Id="113"/>
-  <PARAMETER Data_Path="a@sinewave" TITLE="sine wave amplitude" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="SIN0" UNITS="null" VALUE="0.02" Param_Id="114"/>
+  <PARAMETER Data_Path="a@sinewave" TITLE="sine wave amplitude" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="SIN0" UNITS="null" VALUE="2.00000000000000e-02" Param_Id="114"/>
   <PARAMETER Data_Path="phi@sinewave" TITLE="phase shift" Submodel_Instance="1" IS_DELTA="false" Submodel_Name="SIN0" UNITS="degree" VALUE="0.00000000000000e+00" Param_Id="115"/>
  </PARAMS_LIST>
  <EXPOSED_COPY_LIST/>
